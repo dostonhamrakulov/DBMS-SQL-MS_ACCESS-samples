@@ -3,57 +3,75 @@
 ## PL/SQL works
 ## Database and object technology
 
-Here, I have three different practical works from Database and Object technology course
+Here, I have three different practical works from Database Management System course, 2016
 
 ### Programming languages
-```[plsql, java, xml, sql]
-PLSQL, JAVA, XML, SQL
+```[sql]
+SQL
 ```
 
 ### Author
 >*Doston Hamrakulov, Computer Systems, Riga Technical University, Riga, Latvia*
 
 ## Practical work_1:
-### 1. practical work. Objec-relational DB storage structures
-Creation of object – relational database data storage structures and methods, data input, metadata output and data extraction (queries).
-Deadline: 3. November. 2017
+### 1. practical work. Database design and implementation
 
-1. Creation of object table with row type objects. Input of data (INSERT). Output of metadata (SELECT), output of objects and its components (SELECT) using function Value(). Map or ORDER and MEMBER methods creation for row type objects. Queries with methods (min. 3).
-2. Creation of one to many (1 : N) object relationship between relational table with object column and object table. Input of data. Input of object identifiers using function REF(). Data extraction (all objects and object components) using function DEREF().
-3. Creation of object view with 2 methods from 2 tables (relational table and relational table with column objects). Realization of queries from object view (min. 2).
-4. Creation of table with collection. For collection objects is created Member type method. Data input. Queries with method (min.2).
-5. Creation of object type hierarchy (min. 4 object types) with methods. Creation of object table with different type of objects (according defined type hierarchy). Data input, queries with TREAT(), IS OF TYPE(), SYS_TTYPEID(). Realization of methods inheritance. Queries.
-6. Conclusions.
+    1. Choose topic (shop, school, university, airport etc.)
+    2. Give short description of chosen topic
+    3. Design database conceptual model using CASE tool PowerDesigner (ER model)
+        a. At least 5 entities
+        b. 1:1, 1:N, N:M and unary relationships
+        c. data types for attributes
+        d. constraints and data validation rules
+    4. Generate logical data model in the tool and explore and describe the changes in model
+    5. Specify database management system “MS Access” and generate database physical model.
+    6. Generate the SQL script file from generated database physical model.
+    7. Generate database in MS Access.
+    8. Verify the generated database correspondence to initially designed conceptual model
+
+PowerDesigner_16._Data_modeling_documentation:
+https://datubaze.files.wordpress.com/2013/02/powerdesigner_16_data_modeling_documentation.pdf 
 
 
 ## Practical work_2:
-### 2. practical work. Use of Java in database server
-In 2. practical work is discussed use of Java in database server. Deadline: 28. November.
-
-1. Java class creation and loading in database:
-1) using LOADJAVA program;
-2) using CREATE JAVA command.
-2. Java class meta-date inspection (SELECT).
-3. Creation of PL/SQL function which call Java method. Execution of Java method.
-4. Java class creation, loading and testing for SELECT and INSERT queries realization.
-5. Conclusions (what seems good, what bad, what like, what is problematic).
-
+### 2. SQL basic constructs
+1. Using commands create, insert, update create 3 tables (create structure, define constraints, enter data) (you can use tables designed in Practical Assignment #1).
+2. Create the following types of SQL queries: 
+    1) query with one table and multiple conditions in WHERE clause;
+    2) query with two related tables and multiple conditions in WHERE clause;
+    3) query with grouping GROUP BY;
+    4) query with grouping and HAVING clause (contitions for groups);
+In queries include predicates LIKE together with "?", "*", &;  and predicates ANY; ALL; IN; BETWEEN; DISTINCT.
+In queries include functions COUNT(), SUM(), MAX(), AVG(), LEFT(), RIGHT().
+In queries include expressions (e.g. addition and subtraction).
+3. Conclusions
 
 ## Practical work_3:
-### 3. practical work. XML database
-Design of XML database. Deadline: 19. December.
+### 3. practical work. SQL – subqueries and joins
+1. Using commands CREATE, INSERT, UPDATE create at least 3 tables (create structure, define constraints, enter data) (you can use tables designed in Practical Assignment #1 or #2).
+2. Create the following types of SQL queries: 
+    1) query with subquery in SELECT clause;
+    2) query with subquery in FROM clause; 
+    3) query with subquery in WHERE clause;
+    4) query with UNION construction;
+    5) query with EXISTS construction;
+    6) at least 3 queries with JOIN; 
+    7) at least 3 queries with LEFT JOIN;
+    8) at least 3 queries with RIGHT JOIN;
+    9) query with FULL JOIN.
 
-1. With XML editor (EditX, Oxygen, …) design and create XML documents and schema files.
-2. Design and creation of XML database data storage object-relational tables with XMLType use:
-– unstructured type (CLOB type);
-– structured type (OR type);
-– if You use Oracle12, binary type.
-3. Perform input of data (as text and use bfile (directory creation and use of large object function bfile)).
-4. Perform extraction of data (queries (4)) from tables.
-5. Perform registration of schema.
-6. Create table for structured type of storage with use of schema.
-7. Perform 4 queries.
-8. Perform queries:
-– to achieve relational type of data from XML stored data;
-– to achieve XML type of data from relational type of data.
-9. Conclusions.
+In queries include predicates LIKE together with "?", "*", &;  and predicates ANY; ALL; IN; BETWEEN; DISTINCT.
+In queries include functions COUNT(), SUM(), MAX(), AVG(), LEFT(), RIGHT().
+3. Conclusions.
+
+## Practical work_4:
+### 4. practical work. Forms and Reports
+Create one report with at least 2 levels of grouping and aggregation functions; alternative data should be represented, e.g., date printed, page X of N, etc.
+Create form, that allows enter data, format it properly, assign readable names to control elements (e.g., txt prefix for textboxes, cmb for command buttons etc. - for whole list of prefixes see lecture slides). Add some controls to navigate between records. Show other features of form creation and design you have learned!
+Unnecessary data should be hidden from the user. (p.s. I can suggest you form tasks after you submit DB design).
+
+Submit a report with short description how this form and report could be used, and necessary screenshots.
+All screenshots should be provided, explaining step by step how you create, modify, view the the report and form.
+
+If it is not written in report (Word, PDF), it's not done!
+3. Conclusions.
