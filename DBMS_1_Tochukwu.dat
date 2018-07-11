@@ -1,0 +1,131 @@
+/*==============================================================*/
+/* DBMS name:      Microsoft Access 2007                        */
+/* Created on:     20/03/2017 01:12:31                          */
+/*==============================================================*/
+
+
+alter table FACULTYSUBJECTS
+   drop constraint FK_FACULTYS_FACULTYSU_SUBJECT;
+
+alter table FACULTYSUBJECTS
+   drop constraint FK_FACULTYS_FACULTYSU_FACULTY;
+
+alter table MARKS
+   drop constraint FK_MARKS_CONTAINS_SUBJECT;
+
+alter table MARKS
+   drop constraint FK_MARKS_GET_STUDENT;
+
+alter table STUDENT
+   drop constraint FK_STUDENT_STUDY_FACULTY;
+
+alter table TEACHER
+   drop constraint FK_TEACHER_TEACH_SUBJECT;
+
+drop table FACULTY;
+
+drop table FACULTYSUBJECTS;
+
+drop table MARKS;
+
+drop table STUDENT;
+
+drop table SUBJECT;
+
+drop table TEACHER;
+
+/*==============================================================*/
+/* Table: FACULTY                                               */
+/*==============================================================*/
+create table FACULTY
+(
+    FACULTYID            INTEGER         not null,
+    NAME                 NOTE            not null,
+constraint PK_FACULTY primary key (FACULTYID)
+);
+
+/*==============================================================*/
+/* Table: FACULTYSUBJECTS                                       */
+/*==============================================================*/
+create table FACULTYSUBJECTS
+(
+    SUBJECTID            INTEGER         not null,
+    FACULTYID            INTEGER         not null,
+constraint PK_FACULTYSUBJECTS primary key (SUBJECTID, FACULTYID)
+);
+
+/*==============================================================*/
+/* Table: MARKS                                                 */
+/*==============================================================*/
+create table MARKS
+(
+    MARKID               INTEGER         not null,
+    STUDENTID            INTEGER         not null,
+    SUBJECTID            INTEGER,
+    MARK                 INTEGER         not null,
+constraint PK_MARKS primary key (MARKID)
+);
+
+/*==============================================================*/
+/* Table: STUDENT                                               */
+/*==============================================================*/
+create table STUDENT
+(
+    STUDENTID            INTEGER         not null,
+    FACULTYID            INTEGER         not null,
+    FIRSTNAME            NOTE            not null,
+    LASTNAME             NOTE            not null,
+    DOB                  DATE            not null,
+constraint PK_STUDENT primary key (STUDENTID)
+);
+
+/*==============================================================*/
+/* Table: SUBJECT                                               */
+/*==============================================================*/
+create table SUBJECT
+(
+    SUBJECTID            INTEGER         not null,
+    NAME                 NOTE            not null,
+    FULLMARK             INTEGER         not null,
+    PASSMARK             INTEGER         not null,
+constraint PK_SUBJECT primary key (SUBJECTID)
+);
+
+/*==============================================================*/
+/* Table: TEACHER                                               */
+/*==============================================================*/
+create table TEACHER
+(
+    TEACHER_ID           INTEGER         not null,
+    SUBJECTID            INTEGER,
+    FIRSTNAME            NOTE            not null,
+    LASTNAME             NOTE            not null,
+    ADDRESS              NOTE,
+    PHONENUM             INTEGER,
+constraint PK_TEACHER primary key (TEACHER_ID)
+);
+
+alter table FACULTYSUBJECTS
+   add constraint FK_FACULTYS_FACULTYSU_SUBJECT foreign key (SUBJECTID)
+      references SUBJECT (SUBJECTID);
+
+alter table FACULTYSUBJECTS
+   add constraint FK_FACULTYS_FACULTYSU_FACULTY foreign key (FACULTYID)
+      references FACULTY (FACULTYID);
+
+alter table MARKS
+   add constraint FK_MARKS_CONTAINS_SUBJECT foreign key (SUBJECTID)
+      references SUBJECT (SUBJECTID);
+
+alter table MARKS
+   add constraint FK_MARKS_GET_STUDENT foreign key (STUDENTID)
+      references STUDENT (STUDENTID);
+
+alter table STUDENT
+   add constraint FK_STUDENT_STUDY_FACULTY foreign key (FACULTYID)
+      references FACULTY (FACULTYID);
+
+alter table TEACHER
+   add constraint FK_TEACHER_TEACH_SUBJECT foreign key (SUBJECTID)
+      references SUBJECT (SUBJECTID);
+
